@@ -25,11 +25,11 @@ public class SearchGoogleTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
-    @After
+    @After //Shutdown test after running
     public void tearDown() throws Exception {
         driver.quit();
     }
-    @Test
+    @Test //Executes the test
     public void testGoogleSearch(){
         googlePage = new Google(driver);
         searchPage = googlePage.goToSearchPage();

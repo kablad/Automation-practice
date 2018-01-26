@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.Keys;
 
 /**
  * Created by Ripon on 11/19/2015.
@@ -23,7 +24,8 @@ public class Google {
     }
     public GoogleSearchPage goToSearchPage(){
         driver.findElement(By.id("lst-ib")).sendKeys("Mastering Selenium Testing Tools");
-        driver.findElement(By.name("btnG")).click();
+        driver.findElement(By.id("lst-ib")).sendKeys(Keys.RETURN);
+        /*driver.findElement(By.id("btnK")).click();*/
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id("resultStats")));
         return new GoogleSearchPage(driver);
